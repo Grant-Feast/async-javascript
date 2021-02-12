@@ -31,18 +31,18 @@
 // }
 
 // This does exactly the same as the callback above, it just doesnt include any callbacks.
-const fakeRequestPromise = (url) => {
-  return new Promise((resolve, reject) => {
-    const delay = Math.floor(Math.random() * 4500) + 500;
-    setTimeout(() => {
-      if (delay > 4000) {
-        reject('connection timeout');
-      } else {
-        resolve(`Here is your fake data from ${url}`);
-      }
-    }, delay);
-  })
-}
+// const fakeRequestPromise = (url) => {
+//   return new Promise((resolve, reject) => {
+//     const delay = Math.floor(Math.random() * 4500) + 500;
+//     setTimeout(() => {
+//       if (delay > 4000) {
+//         reject('connection timeout');
+//       } else {
+//         resolve(`Here is your fake data from ${url}`);
+//       }
+//     }, delay);
+//   })
+// }
 
 // If the url comes back as resolved, the then method will then be passed.
 // const request = fakeRequestPromise('yelp.com/api/page1');
@@ -74,21 +74,74 @@ const fakeRequestPromise = (url) => {
   //     })
 
 // An easier way to write the same promise above:
-fakeRequestPromise('yelp.com/api/page1')
-    .then(() => {
-      console.log('it worked! (page 1)');
-      return fakeRequestPromise('yelp.com/api/page2')
-    })
-    .then(() => {
-      console.log('it worked! (page 2)');
-      return fakeRequestPromise('yelp.com/api/page3')
-    })
-    .then(() => {
-      console.log('it worked! (page 3)');
-    })
-    .catch(() => {
-      console.log('Unlucky, timeout');
-    })
+// fakeRequestPromise('yelp.com/api/page1')
+//     .then(() => {
+//       console.log('it worked! (page 1)');
+//       return fakeRequestPromise('yelp.com/api/page2')
+//     })
+//     .then(() => {
+//       console.log('it worked! (page 2)');
+//       return fakeRequestPromise('yelp.com/api/page3')
+//     })
+//     .then(() => {
+//       console.log('it worked! (page 3)');
+//     })
+//     .catch(() => {
+//       console.log('Unlucky, timeout');
+//     })
+
+// A simpler way to create a new promise is to use the async key word, for example:
+
+// async function hello() {
+
+// }
+
+// const helloTwo = async () => {
+
+// }
+
+// The async keyword is placed in front of the function and a promis is automatically returned.
+
+// There is also the await keyword which can be used in place of the .then() method. 
+// When used it basically doesn't run the next line of code until the current promise has been fulfilled.
+
+async function rainbow() {
+  await delayedColorChange(red, 1000);
+  await delayedColorChange(green, 1000);
+  await delayedColorChange(blue, 1000);
+  await delayedColorChange(orange, 1000);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
